@@ -1,6 +1,12 @@
 # ZTAP Bookmarklets
 
-## 1. Exclude "Experimental" Alerts (CAT 11)
+## *Frequently Asked Questions*
+
+1. **Q:** *How do?*<br>**A:** Copy the *Bookmarket* contents; paste into the *URL* field of a new bookmark.
+
+* * *
+
+## Exclude "Experimental" Alerts (CAT 11)
 
 <details><summary>Bookmarklet (one line)</summary>
 
@@ -42,7 +48,7 @@ javascript:void((function(){
 
 * * *
 
-## 2. Exclude "Tuning" Alerts
+## Exclude "Tuning" Alerts
 
 <details><summary>Bookmarklet (one line)</summary>
 

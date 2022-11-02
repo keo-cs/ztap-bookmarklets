@@ -1,0 +1,6 @@
+{
+    "MD003": false, # Line with more than 80 characters
+    "MD013": false, # Empty headings
+    "MD033": false, # Inline HTML
+    "MD038": false, # Spaces inside code blocks
+}

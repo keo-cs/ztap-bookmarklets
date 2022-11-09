@@ -6,6 +6,39 @@
 
 * * *
 
+## Find Organization ID (PSA ID)
+
+<details><summary>Bookmarklet (one line)</summary>
+
+```javascript
+javascript:void((function() { function uEnc(str) { return encodeURIComponent(str).replace(/[!'()*]/g,(c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`) ;}; var uE = location.href; var uD = decodeURIComponent(location.href); var qStr = 'portal.threatanalytics.io/#/incidents?'; var param = ['cat 11 - experimental ioc']; var paramN = param.length; if (uE.indexOf(qStr) == -1) { alert('This is not a ZTAP queue (URL: \''+uE+'\').'); return ;}; for (var i = 0; i < paramN; i++) { oc = uD.indexOf(param[i]); if (oc >= 0) { alert('Experimental IOC (CAT 11) alerts are already excluded (' + oc + ' : \'' + param[i] + '\').'); return ;} ;}; nU = uE + '&' + uEnc('-Incident Category') + '=' + uEnc(param[0]); location.href = nU; })());
+```
+
+</details>
+
+<details><summary>Formatted</summary>
+
+```javascript
+javascript:void((function(){
+  var uE = location.href
+  var qStr = 'portal.threatanalytics.io/#/incidents/'
+  if (uE.indexOf(qStr) == -1) {
+    alert('This is not a ZTAP alert (URL: \''+uE+'\').')
+    return
+  }
+  var content = document.querySelectorAll('a[href*="Created=7days&Organization="]')
+  var link = content[0].getAttribute('href') + '\n'
+  var regexp = /(?<=Created=7days\&Organization\=)[a-zA-Z]+/g
+  var match = link.match(regexp)
+  var psaid = match['0']
+  alert(psaid)
+})());
+```
+
+</details>
+
+* * *
+
 ## Exclude "Experimental" Alerts (CAT 11)
 
 <details><summary>Bookmarklet (one line)</summary>
